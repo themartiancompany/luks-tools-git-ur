@@ -8,7 +8,7 @@ _py2="${_py}2"
 _proj="hip"
 _pkgname=luks-tools
 pkgname="${_pkgname}-git"
-pkgver=0.0.0.0.0.1.r36.gac1cfbe
+pkgver=0.0.0.0.0.1.1.r8.gcc2a761
 pkgrel=1
 _pkgdesc=(
   "A collection of LUKS"
@@ -42,6 +42,7 @@ optdepends=(
 )
 provides=(
   "${_pkgname}=${pkgver}"
+  "mkluks=${pkgver}"
 )
 conflicts=(
   "${_pkgname}"
@@ -115,8 +116,11 @@ pkgver() {
 }
 
 check() {
-  cd "${_pkgname}"
-  make -k check
+  cd \
+    "${_pkgname}"
+  make \
+    -k \
+    check
 }
 
 package() {
@@ -124,6 +128,7 @@ package() {
     "${_pkgname}"
   make \
     DESTDIR="${pkgdir}" \
+    PREFIX=/usr \
     install
 }
 
