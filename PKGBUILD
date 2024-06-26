@@ -8,7 +8,7 @@ _py2="${_py}2"
 _proj="hip"
 _pkgname=luks-tools
 pkgname="${_pkgname}-git"
-pkgver=0.0.0.0.0.1.1.r8.gcc2a761
+pkgver=0.0.0.0.0.1.1.r9.g137f7a6
 pkgrel=1
 _pkgdesc=(
   "A collection of LUKS"
@@ -28,7 +28,8 @@ license=(
   AGPL3
 )
 depends=(
-  cryptsetup
+  'cryptsetup'
+  'libcrash-bash'
 )
 makedepends=(
   git
